@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css">
+  <body>
+    <form id="search-form">
+      <header class="showcase">
+        <div class="showcase-top">
+          <img class="logo" src="assets/img/logoSkyflix.jpg" alt="" />
+        </div>
+        <div class="content-background"></div>
+        <div class="showcase-content">
+          <h1>MOVIE BROWSER</h1>
+          <p>Browse, Search your favorite movies</p>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Enter Movies or Series name"
+              id="input-movie"
+            />
+          </div>
+          <div>
+            <button class="btn btn-lg" type="submit" id="searchBtn">
+              Click to search
+            </button>
+
+        </div>
+      </header>
+    </form>
+
+</div>
+<div class="container">
+  <div id="search-result"></div>
+  <div id="movies" class="row"></div>
+</div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/assets/script/script.js"></script>
+  </body>
+
+
+    <!-- Site footer -->
+		<footer class="footer-distributed">
+      <link rel="stylesheet" href="assets/css/footer.css">
+			<div class="footer-right">
+
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-linkedin"></i></a>
+				<a href="#"><i class="fa fa-github"></i></a>
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a class="link-1" href="#">Home</a>
+
+					<a href="#">Blog</a>
+
+					<a href="#">Pricing</a>
+
+					<a href="#">About</a>
+
+					<a href="#">Faq</a>
+
+					<a href="#">Contact</a>
+				</p>
+
+				<p>Company Name &copy; 2020</p>
+			</div>
+
+		</footer>
+</html>
