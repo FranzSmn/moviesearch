@@ -22,7 +22,7 @@
 
 #movies img,
 #movie img {
-  width: 100%;
+  size: inherit;
 }
 #searchBtn {
   margin-top: 1rem;

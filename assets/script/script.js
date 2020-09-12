@@ -1,4 +1,4 @@
-// const { default: Axios } = require("axios");
+//const { default: Axios } = require("axios");
 
 const searchMovie = document.querySelector("#searchBtn");
 const searchForm = document.forms.namedItem("search-form");
@@ -36,7 +36,7 @@ const inputMovie = searchMovie.addEventListener("click", function () {
           <div class="col-md-3">
               <div class="well text-center">
                 </script>
-                <img src="${movies[i].Poster}">
+                <img class="poster" src="${movies[i].Poster}">
                 <h5>${movies[i].Title}</h5>
                 <a onclick="movieSelected('${movies[i].imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
               </div>
@@ -60,23 +60,9 @@ searchForm.addEventListener("submit", (event) => {
 
 function movieSelected(id) {
   sessionStorage.setItem("movieId", id);
-  window.location = "movie.html";
+  window.location = `movie.html?movieid=${id}`;
   return false;
 }
-
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// };
-
-// span.onclick = function () {
-//   modal.style.display = "none";
-// };
-
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// };
 
 function getMovie() {
   let movieIds = sessionStorage.getItem("movieId");
