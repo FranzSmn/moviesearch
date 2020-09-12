@@ -2,8 +2,12 @@
 
 const searchMovie = document.querySelector("#searchBtn");
 const searchForm = document.forms.namedItem("search-form");
-const movieHtml = document.querySelector("#movies");
+const moviesHtml = document.querySelector("#movies");
+const movieHtml = document.querySelector("#movie");
 const resSearch = document.querySelector("#search-result");
+// const modal = document.getElementById("myModal");
+// const btn = document.getElementById("myBtn");
+// const span = document.getElementsByClassName("close")[0];
 
 const inputMovie = searchMovie.addEventListener("click", function () {
   const movieToSearch = document.getElementById("input-movie").value;
@@ -13,24 +17,45 @@ const inputMovie = searchMovie.addEventListener("click", function () {
     .then((response) => {
       let movies = response.data.Search;
       let output = " ";
+      let noimage = "../img/noImage.png";
       console.log(response);
       for (let i = 0; i < movies.length; i++) {
-        output += `
+        if (movies[i].Poster == "N/A") {
+          output += `
           <div class="col-md-3">
               <div class="well text-center">
+                </script>
+                <img src="/assets/img/noImage.png">
+                <h5>${movies[i].Title}</h5>
+                <a onclick="movieSelected('${movies[i].imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+              </div>
+            </div>
+        `;
+        } else {
+          output += `
+          <div class="col-md-3">
+              <div class="well text-center">
+                </script>
                 <img src="${movies[i].Poster}">
                 <h5>${movies[i].Title}</h5>
                 <a onclick="movieSelected('${movies[i].imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
               </div>
             </div>
         `;
+        }
       }
-      movieHtml.innerHTML = output;
-      resSearch.innerHTML = `<div><h3>SEARCH RESULT FOR "${movieToSearch}"</h3></div>`;
+      moviesHtml.innerHTML = output;
+      resSearch.innerHTML = `<div class="search-res"><h3>SEARCH RESULT FOR "${movieToSearch}"</h3></div>`;
     })
     .catch((err) => {
       console.log(err);
+      resSearch.innerHTML = `<div><h3>0 RESULT FOR "${movieToSearch}"</h3></div>`;
     });
+});
+
+// prevent form submission
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 });
 
 function movieSelected(id) {
@@ -39,16 +64,25 @@ function movieSelected(id) {
   return false;
 }
 
-// // prevent form submission
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-});
+// btn.onclick = function () {
+//   modal.style.display = "block";
+// };
+
+// span.onclick = function () {
+//   modal.style.display = "none";
+// };
+
+// window.onclick = function (event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
 
 function getMovie() {
-  let movieId = sessionStorage.getItem("movieId");
+  let movieIds = sessionStorage.getItem("movieId");
 
   axios
-    .get("http://www.omdbapi.com?i=" + movieId)
+    .get("http://www.omdbapi.com/?apikey=3c32f0f4&i=" + movieIds)
     .then((response) => {
       console.log(response);
       let movie = response.data;

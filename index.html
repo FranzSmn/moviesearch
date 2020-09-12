@@ -22,17 +22,29 @@
         <div class="content-background"></div>
         <div class="showcase-content">
           <h1>MOVIE BROWSER</h1>
-          <p>Browse, Search your favorite movies</p>
-          <div class="form-group">
+          <h4 class="title">Browse, Search your favorite movies</h4>
+          <div class="input-group">
             <input
               class="form-control"
               type="text"
               placeholder="Enter Movies or Series name"
               id="input-movie"
+              aria-label="Recipient's username" aria-describedby="basic-addon2"
             />
+            <div class="input-group-append">
+              <span class="input-group-text fa fa-search" id="basic-addon2"></span>
+            </div>
           </div>
+          <!-- <div class="input-group mb-3">
+            <input type="text" class="form-control" id="input-movie" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">asdw</span>
+            </div>
+          </div> -->
+
+
           <div>
-            <button class="btn btn-lg" type="submit" id="searchBtn">
+            <button class="btn btn-lg" type="click" id="searchBtn">
               Click to search
             </button>
 
@@ -45,6 +57,18 @@
   <div id="search-result"></div>
   <div id="movies" class="row"></div>
 </div>
+
+<!-- <div id="myModal" class="modal">
+
+  Modal content
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div> 
+-->
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/assets/script/script.js"></script>
   </body>
@@ -78,7 +102,7 @@
 					<a href="#">Contact</a>
 				</p>
 
-				<p>Company Name &copy; 2020</p>
+				<p>Skyflix Archives &copy; 2020</p>
 			</div>
 
 		</footer>
