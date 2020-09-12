@@ -9,16 +9,31 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 .list-group {
   height: inherit;
   color: black;
   background: rgba(0, 0, 0, 0.45);
 }
+
+.movie-titles {
+  margin-top: 0.5rem;
+}
+.poster {
+  width: 70%;
+  transition: transform 0.2s;
+}
+
+.poster:hover {
+  transform: scale(1.05);
+}
+
 #plotDetails {
   padding: 33px 50px 25px 20px;
   width: inherit;
 }
+
 .input-group {
   width: 30rem;
 }
@@ -33,11 +48,11 @@
 #movie img {
 }
 #searchBtn {
-  margin-top: 1rem;
+  margin-top: 1.6rem;
   margin-bottom: 1rem;
 }
 .search-res {
-  padding: 33px 0px 25px 0px;
+  padding: 33px 0px 25px 20px;
 }
 @media (min-width: 960px) {
   #movies .col-md-3 .well {
@@ -335,4 +350,32 @@ img {
       font-size: 1em;
     }
   }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .poster {
+    width: 30%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) {
 }

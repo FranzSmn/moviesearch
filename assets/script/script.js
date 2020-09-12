@@ -1,5 +1,4 @@
 //const { default: Axios } = require("axios");
-
 const searchMovie = document.querySelector("#searchBtn");
 const searchForm = document.forms.namedItem("search-form");
 const moviesHtml = document.querySelector("#movies");
@@ -25,8 +24,8 @@ searchMovie.addEventListener("click", () => {
           <div class="col-md-3">
               <div class="well text-center">
                 <img src="/assets/img/noImage.png">
-                <h5>${movies[i].Title}</h5>
-                <a onclick="movieSelected('${movies[i].imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+                <h5 class="movie-titles">${movies[i].Title}</h5>
+                <a onclick="movieSelected('${movies[i].imdbID}')" id="search-btn" class="btn btn-primary">Movie Details</a>
               </div>
             </div>
         `;
@@ -35,8 +34,8 @@ searchMovie.addEventListener("click", () => {
           <div class="col-md-3">
               <div class="well text-center">
                 <img class="poster" src="${movies[i].Poster}">
-                <h5>${movies[i].Title}</h5>
-                <a onclick="movieSelected('${movies[i].imdbID}')" data-toggle="modal" data-target="#myModal" class="btn btn-primary" id="searchBtn" href="#">Movie Details</a>
+                <h5 class="movie-titles">${movies[i].Title}</h5>
+                <a onclick="movieSelected('${movies[i].imdbID}')" class="btn btn-primary" id="search-btn">Movie Details</a>
               </div>
             </div>
         `;
@@ -44,11 +43,12 @@ searchMovie.addEventListener("click", () => {
         // <a onclick="movieSelected('${movies[i].imdbID}')" data-toggle="modal" data-target=".modal" class="btn btn-primary" id="searchBtn" href="#">Movie Details</a>
       }
       moviesHtml.innerHTML = output;
-      resSearch.innerHTML = `<div class="search-res"><h3>SEARCH RESULT FOR "${movieToSearch}"</h3></div>`;
+      resSearch.innerHTML = `<div class="search-res" id="search-res"><h3>Search results for "${movieToSearch}"</h3></div>`;
+      scrollDown();
     })
     .catch((err) => {
       console.log(err);
-      resSearch.innerHTML = `<div><h3>0 RESULT FOR "${movieToSearch}"</h3></div>`;
+      resSearch.innerHTML = `<div id="search-res"><h3>0 RESULT FOR "${movieToSearch}"</h3></div>`;
     });
 });
 
@@ -56,6 +56,10 @@ searchMovie.addEventListener("click", () => {
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
+
+function scrollDown() {
+  document.getElementById("search-res").scrollIntoView();
+}
 
 function movieSelected(id) {
   // sessionStorage.setItem("movieId", id);
