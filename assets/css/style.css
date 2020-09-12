@@ -10,6 +10,15 @@
   margin: 0;
   padding: 0;
 }
+.list-group {
+  height: inherit;
+  color: black;
+  background: rgba(0, 0, 0, 0.45);
+}
+#plotDetails {
+  padding: 33px 50px 25px 20px;
+  width: inherit;
+}
 .input-group {
   width: 30rem;
 }
@@ -22,7 +31,6 @@
 
 #movies img,
 #movie img {
-  size: inherit;
 }
 #searchBtn {
   margin-top: 1rem;
